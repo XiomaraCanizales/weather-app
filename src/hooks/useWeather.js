@@ -28,7 +28,7 @@ export function useWeather(initialCity = 'London') {
     }, [city, units, fetchWeather])
 
     // function to search fro a new city
-    const seachCity = (newCity) => {
+    const searchCity = (newCity) => {
         if (newCity.trim()) {
             setCity(newCity.trim())
         }
@@ -37,7 +37,7 @@ export function useWeather(initialCity = 'London') {
     // function to toggle units between metric and imperial
     const toggleUnits = (newUnit) => {
         if (newUnit !== units) {
-            setUnits
+            setUnits(newUnit)
         }
     }
 
@@ -47,7 +47,7 @@ export function useWeather(initialCity = 'London') {
         error,
         city,
         units,
-        seachCity,
+        searchCity,
         toggleUnits
     }
 }

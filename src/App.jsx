@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { getWeatherData } from "./services/weatherApi";
-import { useWeat } from "./hooks/useWeather"
+import { useWeather } from "./hooks/useWeather"
 
 export default function App() {
   const { weatherData, loading, error, units, searchCity, toggleUnits } = useWeather("London")
@@ -16,7 +16,7 @@ export default function App() {
       <div className="w-full max-w-4xl space-y-6">
         {/* Header Title */}
         <header className="flex justify-between items-center">
-          <h1 className="text=2xl md:text-3xl font-bold text-sky-400">🌤️ Weather Dashboard</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-sky-400">🌤️ Weather Dashboard</h1>
 
           {/* UnitToggle later */}
         </header>
@@ -39,7 +39,7 @@ export default function App() {
         {/* weaterh content */}
         {!loading && !error && weatherData && (
           <div className="space-y-6">
-            <div className="bg-slate-900/60 backdrop-blur-md border border-sllate-800 p-6 rounded-3xl">
+            <div className="bg-slate-900/60 backdrop-blur-md border border-slate-800 p-6 rounded-3xl">
               <h2 className="text-xl font-semibold text-slate-200">
                 {weatherData.current.name}. {weatherData.current.sys.country}
               </h2>
@@ -47,7 +47,7 @@ export default function App() {
                 {Math.round(weatherData.current.main.temp)}°{units === 'metric' ? 'C' : 'F'}
               </p>
               <p className="text-slate-400 capitalize mt-1">
-                {weatherData.current.weatherData[0].description}
+                {weatherData.current.weather[0].description}
               </p>
             </div>
           </div>
